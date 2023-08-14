@@ -81,7 +81,7 @@ HWND create_monitor_window()
     wc.hInstance = GetModuleHandle(NULL);
     wc.lpszClassName = name;
 
-    if (!RegisterClass(&wc)) {
+    if (!RegisterClassA(&wc)) {
         return NULL;
     }
 
