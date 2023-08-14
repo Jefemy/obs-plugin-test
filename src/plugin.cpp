@@ -75,7 +75,7 @@ HWND create_monitor_window()
 {
     const char* name = "OBS sleep power state monitor window";
 
-    WNDCLASS wc = {};
+    WNDCLASSA wc = {};
     wc.lpfnWndProc = window_proc;
     wc.style = CS_NOCLOSE;
     wc.hInstance = GetModuleHandle(NULL);
