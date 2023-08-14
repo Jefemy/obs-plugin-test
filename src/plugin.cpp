@@ -16,10 +16,10 @@ api_func stop_replay;
 api_func_bool replay_active;
 
 bool obs_module_load() {
-    HMODULE obs_dll = LoadLibrary("obs.dll");
+    HMODULE obs_dll = LoadLibraryA("obs.dll");
     if (!obs_dll) return false;
 
-    HMODULE obs_frontend = LoadLibrary("obs-frontend-api.dll");
+    HMODULE obs_frontend = LoadLibraryA("obs-frontend-api.dll");
     if (!obs_frontend) return false;
 
     start_replay = (api_func)GetProcAddress(obs_frontend, "obs_frontend_replay_buffer_start");
@@ -85,5 +85,5 @@ HWND create_monitor_window()
         return NULL;
     }
 
-    return CreateWindowEx(0, name, name, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL);
+    return CreateWindowExA(0, name, name, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL);
 }
